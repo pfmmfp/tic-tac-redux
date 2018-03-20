@@ -28,7 +28,7 @@ class Game extends Component {
         <div className="game-board">
           <Board
             squares={current} 
-            onClick={this.props.onPlay}/>
+            onPlay={this.props.onPlay}/>
         </div>
         <div className="game-info">
           <div>{status}</div>
@@ -40,9 +40,9 @@ class Game extends Component {
 }
 
 const mapStateToProps = state => state;
-const mapDispatchToProps = (dispatch, props) => ({
-  onRevert: move => dispatch(revert(move)),
-  onPlay: pos => dispatch(play(pos))
-});
+const mapDispatchToProps = {
+  onRevert: revert,
+  onPlay: play
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Game);

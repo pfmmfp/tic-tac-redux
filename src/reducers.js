@@ -8,7 +8,7 @@ const initialState = {
 };
 
 const play = (state, action) => {
-  const { history, xIsNext } = state;
+  const { history, xIsNext, stepNumber } = state;
   const latestPlay = history[history.length - 1];
   if (latestPlay[action.pos] || calculateWinner(latestPlay)) {
     return state;
@@ -21,7 +21,7 @@ const play = (state, action) => {
       newPlay
     ],
     xIsNext: !state.xIsNext,
-    stepNumber: state.stepNumber + 1,
+    stepNumber: stepNumber + 1,
     winner: calculateWinner(newPlay)
   };
 };
